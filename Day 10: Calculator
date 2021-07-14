@@ -1,0 +1,35 @@
+import art
+
+
+def calculate(num1, num2, operator):
+  if operator == "+":
+    return num1 + num2
+  elif operator == "-":
+    return num1 - num2
+  elif operator == "*":
+    return num1 * num2
+  else:
+    return num1 / num2
+
+operators = []
+
+def calculator():
+  print(art.logo)
+  num1 = float(input("What's the first number?: "))
+  keep_calc = True
+
+  while keep_calc == True:
+    operation = input("Pick an operation: ")
+    num2 = float(input("What's the next number?: "))
+    answer = calculate(num1, num2, operation)
+    print(f"{num1} {operation} {num2} = {answer}")
+
+    continue_calc = input(f"Type 'y' to continue calculating with {answer}, or type 'n' to start a new calculation: ").lower()
+
+    if continue_calc == "y":
+      num1 = answer
+    else:
+      keep_calc = False
+      calculator()
+
+calculator()
